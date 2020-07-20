@@ -1,30 +1,27 @@
 import React from "react"
-import ReactDOM from "react-dom"
-import Home from "./pages/Home";
+import ReactDOM, { render } from "react-dom"
+import { Router, Route, useRouterHistory } from 'react-router';
+import BrowserRouter from "react-router-dom"
+import Nav from "./Navigation/Navigation"
+import Home from "./pages/Home"
 import FAQ from "./pages/FAQ";
 import Settings from "./pages/Settings";
-import Crud from "./pages/CRUD";
-import Budget from "./pages/Budget";
-import {BrowserRouter, Route} from "react-router-dom";
+import Budget from "./pages/Budget"; 
+import CRUD from "./pages/CRUD";
 
+function App (){
+let routes = (
+    
+        <div>
+            
+            <Route exact path="/" component={Home} />
+            <Route exact path="/FAQ" component={FAQ} />
+            <Route exact path="Settings" component={Settings} />
+            <Route exact path="Form" component={CRUD} />
+            <Route exact path="Budget" component={Budget} />
 
-class App extends Component {
-        
-
-    render() {
-        return (
-            <div>
-                <BrowserRouter>
-                    <Route exact path="/" component={Home} />
-                    <Route exact path="/FAQ" component={FAQ} />
-                    <Route exact path="/settings" component={Settings} />
-                    <Route exact path="/form" component={Crud} />
-                    <Route exact path="/budget" component={Budget} />
-                
-                </BrowserRouter>
-            </div>
-        );
-    };
+        </div>
+    );
 };
 
 
